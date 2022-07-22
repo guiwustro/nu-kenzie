@@ -8,8 +8,8 @@ const Form = ({ setListTransactions, setAllTransactions }) => {
 	const addTransaction = () => {
 		const transation = { description, valueEntry, type };
 		if (!valueEntry) transation.valueEntry = 0;
-		setListTransactions((oldList) => [...oldList, transation]);
-		setAllTransactions((oldList) => [...oldList, transation]);
+		setListTransactions((oldList) => [transation, ...oldList]);
+		setAllTransactions((oldList) => [transation, ...oldList]);
 	};
 	return (
 		<aside className="aside__form">

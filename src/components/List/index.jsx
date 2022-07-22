@@ -58,11 +58,13 @@ const List = ({
 				</li>
 			</ul>
 			<ul className="container__list">
+				{/* Colocar a key apenas na hora da chamada da função Card, não usa-la no Card também!! */}
 				{listTransactions.map((transaction, index) => (
 					<Card
 						setListTransactions={setListTransactions}
 						setAllTransactions={setAllTransactions}
 						transaction={transaction}
+						key={index}
 						index={index}
 					/>
 				))}
