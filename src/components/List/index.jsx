@@ -1,15 +1,15 @@
 import Card from "../Card";
 import "./styles.css";
-import { useState } from "react";
 import noCard from "../../assets/imgs/NoCard.png";
 const List = ({
 	listTransactions,
 	setListTransactions,
 	allTransactions,
 	setAllTransactions,
+	activeFilter,
+	setActiveFilter,
 }) => {
 	// a variável listTransactions está renderizando todo nossa página, precisa criar uma constante que armazene TODAS as transações. E sempre que for adicionado alguma, ou deletado, essa variável tem que identificar...
-	const [activeFilter, setActiveFilter] = useState("all");
 	const filterAll = () => {
 		setListTransactions(allTransactions);
 		setActiveFilter("all");

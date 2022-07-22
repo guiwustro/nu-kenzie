@@ -1,15 +1,18 @@
 import "./styles.css";
 import { useState } from "react";
 
-const Form = ({ setListTransactions, setAllTransactions }) => {
+const Form = ({ setListTransactions, setAllTransactions, activeFilter }) => {
 	const [description, setDescription] = useState("");
 	const [valueEntry, setValueEntry] = useState("");
 	const [type, setType] = useState("incoming");
 	const addTransaction = () => {
 		const transation = { description, valueEntry, type };
 		if (!valueEntry) transation.valueEntry = 0;
-		setListTransactions((oldList) => [transation, ...oldList]);
+
 		setAllTransactions((oldList) => [transation, ...oldList]);
+		return activeFilter === "all" || transation.type === activeFilter
+			? setListTransactions((oldList) => [transation, ...oldList])
+			: null;
 	};
 	return (
 		<aside className="aside__form">
@@ -64,7 +67,7 @@ const Form = ({ setListTransactions, setAllTransactions }) => {
 						}}
 					>
 						<option value="incoming">Entrada</option>
-						<option value="expense">Despesa</option>
+						<option value="expenses">Despesa</option>
 					</select>
 				</div>
 

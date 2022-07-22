@@ -27,6 +27,8 @@
 @media (min-width: 1024px) {
 	.App {
 		max-width: 1024px;
+		grid-template-columns: 40% 60%;
+
 		grid-template-areas:
 			"header header"
 			"form containerList"
@@ -39,5 +41,6 @@
 @media (min-width: 1440px) {
 	.App {
 		max-width: 1440px;
+		grid-template-columns: 30% 70%;
 	}
 }
