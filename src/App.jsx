@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import TotalMoney from "./components/TotalMoney";
 import List from "./components/List";
 import WelcomePage from "./components/WelcomePage";
-
 function App() {
 	const [listTransactions, setListTransactions] = useState([]);
 	const [allTransactions, setAllTransactions] = useState([]);

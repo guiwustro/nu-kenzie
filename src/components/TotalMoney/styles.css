@@ -5,7 +5,7 @@
 		"description value";
 	width: 300px;
 	height: 96px;
-	background: var(--color-white);
+	background: var(--color-total-container);
 	border: 1px solid var(--color-grey-2);
 	border-radius: 4px;
 	padding: 20px 24px;

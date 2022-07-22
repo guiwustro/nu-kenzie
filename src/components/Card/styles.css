@@ -64,11 +64,13 @@
 	height: 22px;
 	margin-top: 18px;
 	background-image: url("../../assets/imgs/trash-icon-1.png");
-	border: none;
 	border-radius: 2.46154px;
 	cursor: pointer;
 	justify-self: end;
 	margin-right: 13px;
+	border: 2px solid transparent;
+	background-position: center;
+	background-color: var(--color-grey-1);
 }
 
 .item__button:hover {

@@ -9,13 +9,16 @@ const Card = ({
 		setListTransactions((old) => old.filter((_, i) => i !== index));
 		setAllTransactions((old) => old.filter((_, i) => i !== index));
 	};
-	const value = (+transaction.valueEntry).toFixed(2);
+	const value = new Intl.NumberFormat("pt-BR", {
+		style: "currency",
+		currency: "BRL",
+	}).format(+transaction.valueEntry);
 
 	return transaction.type === "incoming" ? (
 		<li className="list__item list__item--green-border">
 			<h3 className="item__description">{transaction.description}</h3>
 			<span className="item__type">Entradas</span>
-			<span className="item__value item__value--green">R$ {value}</span>
+			<span className="item__value item__value--green">{value}</span>
 			<button
 				onClick={() => {
 					removeTransaction();
@@ -27,7 +30,7 @@ const Card = ({
 		<li className="list__item list__item--red-border">
 			<h3 className="item__description">{transaction.description}</h3>
 			<span className="item__type">Despesas</span>
-			<span className="item__value item__value--red">R$ {value}</span>
+			<span className="item__value item__value--red">{value}</span>
 			<button
 				onClick={() => {
 					removeTransaction();

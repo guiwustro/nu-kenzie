@@ -67,7 +67,7 @@
 	font-weight: 700;
 	font-size: 1.375rem;
 	line-height: 34px;
-	color: var(--color-grey-3);
+	color: var(--color-grey-empty-title);
 	text-align: center;
 }
 

@@ -8,7 +8,20 @@
 	margin: 0 auto;
 	row-gap: 20px;
 	column-gap: 60px;
+}
+
+.App::before {
+	content: "";
+	background-color: var(--color-app);
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	max-width: 100% !important;
 	overflow-x: hidden;
+
+	position: fixed;
+	z-index: -1;
 }
 
 @media (min-width: 1024px) {
