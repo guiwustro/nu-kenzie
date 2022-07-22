@@ -5,7 +5,7 @@ const DarkMode = () => {
 		"--color-total-container": "#ffffff",
 		"--color-grey-empty-title": "#868e96",
 		"--color-bgc-welcome-page": "#212529",
-		"--color-app": "#f8f9fa",
+		"--color-app": "#ffffff",
 		"--color-grey-5": "#343a40",
 		"--color-grey-4": "#212529",
 		"--color-grey-3": "#868e96",
