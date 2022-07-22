@@ -1,0 +1,54 @@
+.header {
+	grid-area: header;
+	max-width: 1024px;
+	/* margin: 0 4vw; */
+	display: flex;
+	width: 100%;
+	padding: 0 4vw;
+	height: 88px;
+	display: grid;
+	grid-template-columns: 130px auto 100px;
+	align-items: center;
+}
+.header::after {
+	content: "";
+	position: absolute;
+	display: block;
+	background-color: var(--color-grey-1);
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 88px;
+	box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
+}
+.header__logo {
+	background-image: url("../../assets/imgs/nu-kenzie-logo.png");
+	height: 19.5260009765625px;
+	width: 122.67755126953125px;
+}
+
+.header__button-start {
+	padding: 15px;
+	gap: 10px;
+	width: 64px;
+	height: 40px;
+	background-color: var(--color-grey-2);
+	border: 1.4px solid var(--color-grey-2);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-self: flex-end;
+	cursor: pointer;
+}
+
+.header__button-start:hover {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+}
+
+@media (min-width: 1440px) {
+	.header {
+		max-width: 1440px;
+	}
+}

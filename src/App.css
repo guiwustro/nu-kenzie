@@ -1,0 +1,30 @@
+.App {
+	display: grid;
+	grid-template-areas:
+		"header"
+		"form "
+		"total"
+		"containerList";
+	margin: 0 auto;
+	row-gap: 20px;
+	column-gap: 60px;
+	overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+	.App {
+		max-width: 1024px;
+		grid-template-areas:
+			"header header"
+			"form containerList"
+			"total containerList";
+		row-gap: 39px;
+		grid-template-rows: auto 350px auto;
+		column-gap: 0px;
+	}
+}
+@media (min-width: 1440px) {
+	.App {
+		max-width: 1440px;
+	}
+}

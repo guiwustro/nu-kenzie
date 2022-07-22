@@ -1,0 +1,82 @@
+.list__item {
+	display: grid;
+	grid-template-areas:
+		"description value trash"
+		"type value trash";
+	grid-template-columns: auto auto max-content;
+	background: var(--color-grey-1);
+	column-gap: 20px;
+
+	border-radius: 4px;
+	padding-left: 14px;
+	padding-top: 8px;
+	padding-bottom: 11px;
+
+	/* Fazer condiçãO! */
+}
+
+.list__item--red-border {
+	border-left: 4px solid var(--color-red-1);
+}
+
+.list__item--green-border {
+	border-left: 4px solid var(--color-secondary);
+}
+
+.item__description {
+	grid-area: description;
+	font-family: "Nunito";
+	font-weight: 700;
+	font-size: 1rem;
+	color: var(--color-grey-4);
+	line-height: 30px;
+	min-width: 165px;
+	word-wrap: break-word;
+}
+
+.item__type {
+	grid-area: type;
+	color: var(--color-grey-5);
+	font-family: "Nunito";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.75rem;
+	line-height: 22px;
+}
+
+.item__value {
+	grid-area: value;
+	color: var(--color-grey-4);
+	padding-top: 18px;
+	line-height: 22px;
+	text-align: end;
+	font-weight: 500;
+}
+.item__value--red {
+	color: var(--color-red-1);
+}
+.item__value--green {
+	color: var(--color-secondary);
+}
+.item__button {
+	grid-area: trash;
+	width: 22px;
+	height: 22px;
+	margin-top: 18px;
+	background-image: url("../../assets/imgs/trash-icon-1.png");
+	border: none;
+	border-radius: 2.46154px;
+	cursor: pointer;
+	justify-self: end;
+	margin-right: 13px;
+}
+
+.item__button:hover {
+	background-image: url("../../assets/imgs/trash-icon-2-hover.png");
+}
+
+@media (min-width: 1024px) {
+	.list__item {
+		column-gap: 40px;
+	}
+}

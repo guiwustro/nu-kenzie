@@ -1,0 +1,44 @@
+.container__total {
+	display: grid;
+	grid-template-areas:
+		"subtitle value"
+		"description value";
+	width: 300px;
+	height: 96px;
+	background: var(--color-white);
+	border: 1px solid var(--color-grey-2);
+	border-radius: 4px;
+	padding: 20px 24px;
+	row-gap: 15px;
+	grid-area: total;
+	margin: 0 auto;
+}
+
+.subtitle__total {
+	grid-area: subtitle;
+	font-size: 1rem;
+	color: var(--color-grey-4);
+	text-align: start;
+}
+
+.description__total {
+	grid-area: description;
+	font-size: 0.75rem;
+	text-align: start;
+	color: var(--color-grey-3);
+}
+
+.value__total {
+	color: var(--color-primary);
+	font-size: 1rem;
+	text-align: end;
+	grid-area: value;
+}
+@media (min-width: 1024px) {
+	.container__total {
+		width: 363px;
+		row-gap: 20px;
+		grid-area: total;
+		margin-left: 4vw;
+	}
+}
