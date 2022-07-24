@@ -2,14 +2,15 @@
 	display: grid;
 	grid-template-areas:
 		"description value trash"
-		"type value trash";
-	grid-template-columns: auto 80px max-content;
+		"type edit trash";
+	grid-template-columns: auto minmax(120px, 300px) max-content;
 
 	background: var(--color-grey-1);
 	box-sizing: border-box;
 
 	border-radius: 4px;
-	padding: 8px 14px 11px 14px;
+	padding: 15px 18px 11px 14px;
+	min-height: 70px;
 }
 
 .list__item--red-border {
@@ -49,6 +50,7 @@
 	padding: 0 10px;
 	box-sizing: border-box;
 	font-weight: 500;
+	padding-bottom: 8px;
 }
 .item__value--red {
 	color: var(--color-red-1);
@@ -56,7 +58,7 @@
 .item__value--green {
 	color: var(--color-secondary);
 }
-.item__button {
+.item__button--delete {
 	grid-area: trash;
 	width: 22px;
 	height: 22px;
@@ -69,10 +71,23 @@
 	background-color: var(--color-grey-1);
 }
 
-.item__button:hover {
+.item__button--delete:hover {
 	background-image: url("../../assets/imgs/trash-icon-2-hover.png");
 }
+.item__button--edit {
+	grid-area: edit;
+	/* width: 80px; */
+	padding: 4px 10px;
+	justify-self: end;
+	border: none;
+	background-color: var(--color-grey-2);
+	color: var(--color-grey-4);
+	border-radius: 8px;
+}
 
+.item__button--edit:hover {
+	background-color: var(--color-primary);
+}
 @media (min-width: 1024px) {
 	.list__item {
 		column-gap: 40px;

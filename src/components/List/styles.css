@@ -12,7 +12,7 @@
 	grid-area: title;
 	font-family: "Nunito";
 	font-weight: 700;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	color: var(--color-grey-4);
 	align-self: center;
 	text-align: center;
@@ -20,7 +20,7 @@
 
 .container__filters {
 	grid-area: filter;
-	gap: 10px;
+	gap: 15px;
 	display: flex;
 	justify-content: center;
 }

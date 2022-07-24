@@ -1,7 +1,6 @@
 .header {
 	grid-area: header;
 	max-width: 1024px;
-	/* margin: 0 4vw; */
 	display: flex;
 	width: 100%;
 	padding: 0 4vw;
@@ -40,6 +39,7 @@
 	align-items: center;
 	justify-self: flex-end;
 	cursor: pointer;
+	color: var(--color-grey-4);
 }
 
 .header__button-start:hover {

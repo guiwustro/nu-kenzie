@@ -5,13 +5,15 @@ const Form = ({ setListTransactions, setAllTransactions, activeFilter }) => {
 	const [description, setDescription] = useState("");
 	const [valueEntry, setValueEntry] = useState("");
 	const [type, setType] = useState("incoming");
-	const addTransaction = () => {
-		const transation = { description, valueEntry, type };
-		if (!valueEntry) transation.valueEntry = 0;
 
-		setAllTransactions((oldList) => [transation, ...oldList]);
-		return activeFilter === "all" || transation.type === activeFilter
-			? setListTransactions((oldList) => [transation, ...oldList])
+	const addTransaction = () => {
+		const transaction = { description, valueEntry, type };
+
+		if (!valueEntry) transaction.valueEntry = 0;
+
+		setAllTransactions((oldList) => [transaction, ...oldList]);
+		return activeFilter === "all" || transaction.type === activeFilter
+			? setListTransactions((oldList) => [transaction, ...oldList])
 			: null;
 	};
 	return (
@@ -50,6 +52,7 @@ const Form = ({ setListTransactions, setAllTransactions, activeFilter }) => {
 						className="form__input input__value"
 						placeholder="1"
 						id="value"
+						max={999999}
 						value={valueEntry}
 						onChange={(event) => setValueEntry(event.target.value)}
 					/>

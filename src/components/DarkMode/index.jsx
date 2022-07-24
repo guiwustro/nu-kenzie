@@ -32,7 +32,7 @@ const DarkMode = () => {
 	};
 
 	const [isDark, setIsDark] = useState(
-		localStorage.getItem("@nu-kenzie:dark-theme")
+		JSON.parse(localStorage.getItem("@nu-kenzie:dark-theme")) || false
 	);
 
 	const setTheme = (theme) => {
@@ -40,33 +40,23 @@ const DarkMode = () => {
 			document.documentElement.style.setProperty(keys, theme[keys]);
 		}
 	};
-	// Qndo o usuário logar a primeira vez deve aparecer light-themee
-	if (localStorage.getItem("@nu-kenzie:dark-theme") === null) {
-		setIsDark(false);
-		localStorage.setItem("@nu-kenzie:dark-theme", isDark);
-	}
 
-	// useEffect(() => {
-	// 	if (localStorage.getItem("@nu-kenzie:dark-theme") !== null)
-	// 		setIsDark(localStorage.getItem("@nu-kenzie:dark-theme", isDark));
-	// }, [isDark]);
-	//Coloquei o negativo ! para deixar padrão lightmode, mas não está salvandoo
-
-	isDark === true ? setTheme(darkTheme) : setTheme(lightTheme);
+	useEffect(() => {
+		localStorage.setItem("@nu-kenzie:dark-theme", JSON.stringify(isDark));
+	}, [isDark]);
 
 	return (
 		<div className="checkbox">
+			{isDark ? setTheme(darkTheme) : setTheme(lightTheme)}
 			<input
 				id="toggle"
 				type="checkbox"
-				checked={Boolean(isDark)}
+				checked={isDark}
 				onChange={() => {
 					setIsDark((theme) => !theme);
-					localStorage.setItem("@nu-kenzie:dark-theme", isDark);
 				}}
 			/>
 			<label htmlFor="toggle" className="switch"></label>
-			{console.log(isDark)}
 		</div>
 	);
 };

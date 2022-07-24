@@ -109,6 +109,7 @@ option {
 	padding: 13px 20px;
 	margin-top: 19px;
 	color: var(--color-white);
+	font-size: 1rem;
 }
 
 .form__button:hover {

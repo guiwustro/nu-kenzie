@@ -1,10 +1,14 @@
 import "./styles.css";
+// import EditCard from "../EditCard";
+
 const Card = ({
 	transaction,
 	index,
 	setListTransactions,
 	setAllTransactions,
 }) => {
+	// const [setEditCard, editCard] = useState(false);
+
 	const removeTransaction = () => {
 		setListTransactions((old) => old.filter((_, i) => i !== index));
 		setAllTransactions((old) => old.filter((_, i) => i !== index));
@@ -14,29 +18,42 @@ const Card = ({
 		currency: "BRL",
 	}).format(+transaction.valueEntry);
 
-	return transaction.type === "incoming" ? (
-		<li className="list__item list__item--green-border">
+	return (
+		<li
+			className={`list__item ${
+				transaction.type === "incoming"
+					? "list__item--green-border"
+					: "list__item--red-border"
+			}`}
+		>
 			<h3 className="item__description">{transaction.description}</h3>
-			<span className="item__type">Entradas</span>
-			<span className="item__value item__value--green">{value}</span>
+			<span className="item__type">
+				{transaction.type === "incoming" ? "Entrada" : "Despesa"}
+			</span>
+			<span
+				className={`item__value ${
+					transaction.type === "incoming"
+						? "item__value--green"
+						: "item__value--red"
+				}`}
+			>
+				{value}
+			</span>
 			<button
 				onClick={() => {
 					removeTransaction();
 				}}
-				className="item__button"
+				className="item__button--delete"
 			></button>
-		</li>
-	) : (
-		<li className="list__item list__item--red-border">
-			<h3 className="item__description">{transaction.description}</h3>
-			<span className="item__type">Despesas</span>
-			<span className="item__value item__value--red">{value}</span>
-			<button
+			{/* <button
+				className="item__button--edit"
 				onClick={() => {
-					removeTransaction();
+					setEditCard(true);
 				}}
-				className="item__button"
-			></button>
+			>
+				Editar
+			</button> */}
+			{/* {editCard ? EditCard({transaction ={transaction} setTransaction={setTransaction} setEditCard}) : null} */}
 		</li>
 	);
 };

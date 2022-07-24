@@ -25,7 +25,8 @@
 	content: "";
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(to right, #42abff, #ff4fb8, #ffeb3b);
+	/* background-image: linear-gradient(to right, #42abff, #ff4fb8, #ffeb3b); */
+	background-image: linear-gradient(to right, #4274ff, var(--color-primary));
 	opacity: 0;
 	transition: opacity 0.5s;
 }
