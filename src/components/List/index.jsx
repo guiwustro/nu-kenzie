@@ -6,9 +6,8 @@ import { TransactionsContext } from "../../contexts/transactions";
 const List = () => {
 	const {
 		activeFilter,
-		filterAll,
-		filterIncoming,
-		filterExpenses,
+		showAllTransactions,
+		filterTransactions,
 		listTransactions,
 	} = useContext(TransactionsContext);
 
@@ -21,7 +20,7 @@ const List = () => {
 					className={`filter__item filter__all ${
 						activeFilter === "all" && "filter__item--active"
 					}`}
-					onClick={() => filterAll()}
+					onClick={() => showAllTransactions()}
 				>
 					Todos
 				</li>
@@ -30,7 +29,7 @@ const List = () => {
 					className={`filter__item filter__entries ${
 						activeFilter === "incoming" && "filter__item--active"
 					}`}
-					onClick={() => filterIncoming()}
+					onClick={() => filterTransactions("incoming")}
 				>
 					Entradas
 				</li>
@@ -39,7 +38,7 @@ const List = () => {
 					className={`filter__item filter__expenses ${
 						activeFilter === "expenses" && "filter__item--active"
 					}`}
-					onClick={() => filterExpenses()}
+					onClick={() => filterTransactions("expenses")}
 				>
 					Despesas
 				</li>
@@ -51,7 +50,7 @@ const List = () => {
 				))}
 			</ul>
 
-			{listTransactions.length === 0 ? (
+			{listTransactions.length === 0 && (
 				<div className="container__list">
 					<h2 className="container__title--empty">
 						Você ainda não possui nenhum lançamento
@@ -60,7 +59,7 @@ const List = () => {
 						<img src={noCard} alt="" />
 					</div>
 				</div>
-			) : null}
+			)}
 		</section>
 	);
 };

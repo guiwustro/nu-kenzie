@@ -3,28 +3,11 @@ import { useContext, useState } from "react";
 import { TransactionsContext } from "../../contexts/transactions";
 
 const Form = () => {
-	const {
-		addTransaction,
-		setAllTransactions,
-		activeFilter,
-		setListTransactions,
-	} = useContext(TransactionsContext);
+	const { addTransaction } = useContext(TransactionsContext);
 
 	const [description, setDescription] = useState("");
 	const [valueEntry, setValueEntry] = useState("");
 	const [type, setType] = useState("incoming");
-
-	// const addTransaction = () => {
-	// 	const transaction = { description, valueEntry, type };
-
-	// 	if (!valueEntry) transaction.valueEntry = 0;
-
-	// 	setAllTransactions((oldList) => [transaction, ...oldList]);
-	// 	return activeFilter === "all" || transaction.type === activeFilter
-	// 		? setListTransactions((oldList) => [transaction, ...oldList])
-	// 		: null;
-	// };
-
 	return (
 		<aside className="aside__form">
 			<form

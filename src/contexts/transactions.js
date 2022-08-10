@@ -27,19 +27,17 @@ const TransactionsProvider = ({ children }) => {
 		setAllTransactions((old) => old.filter((_, i) => i !== index));
 	};
 
-	const filterAll = () => {
+	const showAllTransactions = () => {
 		setListTransactions(allTransactions);
 		setActiveFilter("all");
 	};
-	const filterIncoming = () => {
-		const incoming = allTransactions.filter(({ type }) => type === "incoming");
-		setListTransactions(incoming);
-		setActiveFilter("incoming");
-	};
-	const filterExpenses = () => {
-		const expenses = allTransactions.filter(({ type }) => type !== "incoming");
-		setListTransactions(expenses);
-		setActiveFilter("expenses");
+
+	const filterTransactions = (typeTransaction) => {
+		const transactionsFiltered = allTransactions.filter(
+			({ type }) => type === typeTransaction
+		);
+		setListTransactions(transactionsFiltered);
+		setActiveFilter(typeTransaction);
 	};
 
 	return (
@@ -50,9 +48,8 @@ const TransactionsProvider = ({ children }) => {
 				allTransactions,
 				setAllTransactions,
 				activeFilter,
-				filterAll,
-				filterIncoming,
-				filterExpenses,
+				showAllTransactions,
+				filterTransactions,
 				removeTransaction,
 				addTransaction,
 			}}
