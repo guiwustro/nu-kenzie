@@ -1,28 +1,37 @@
 import "./styles.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TransactionsContext } from "../../contexts/transactions";
 
-const Form = ({ setListTransactions, setAllTransactions, activeFilter }) => {
+const Form = () => {
+	const {
+		addTransaction,
+		setAllTransactions,
+		activeFilter,
+		setListTransactions,
+	} = useContext(TransactionsContext);
+
 	const [description, setDescription] = useState("");
 	const [valueEntry, setValueEntry] = useState("");
 	const [type, setType] = useState("incoming");
 
-	const addTransaction = () => {
-		const transaction = { description, valueEntry, type };
+	// const addTransaction = () => {
+	// 	const transaction = { description, valueEntry, type };
 
-		if (!valueEntry) transaction.valueEntry = 0;
+	// 	if (!valueEntry) transaction.valueEntry = 0;
 
-		setAllTransactions((oldList) => [transaction, ...oldList]);
-		return activeFilter === "all" || transaction.type === activeFilter
-			? setListTransactions((oldList) => [transaction, ...oldList])
-			: null;
-	};
+	// 	setAllTransactions((oldList) => [transaction, ...oldList]);
+	// 	return activeFilter === "all" || transaction.type === activeFilter
+	// 		? setListTransactions((oldList) => [transaction, ...oldList])
+	// 		: null;
+	// };
+
 	return (
 		<aside className="aside__form">
 			<form
 				className="form"
 				onSubmit={(event) => {
 					event.preventDefault();
-					addTransaction();
+					addTransaction(description, valueEntry, type);
 				}}
 			>
 				<div className="description__container">

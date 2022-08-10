@@ -1,8 +1,10 @@
 import "./styles.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { TransactionsContext } from "../../contexts/transactions";
 
-const TotalMoney = ({ listTransactions }) => {
+const TotalMoney = () => {
 	const [totalValue, setTotalValue] = useState("0");
+	const { listTransactions } = useContext(TransactionsContext);
 
 	useEffect(() => {
 		const value = listTransactions.reduce(

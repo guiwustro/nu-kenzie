@@ -1,29 +1,16 @@
 import Card from "../Card";
 import "./styles.css";
 import noCard from "../../assets/imgs/NoCard.png";
-const List = ({
-	listTransactions,
-	setListTransactions,
-	allTransactions,
-	setAllTransactions,
-	activeFilter,
-	setActiveFilter,
-}) => {
-	// a variável listTransactions está renderizando todo nossa página, precisa criar uma constante que armazene TODAS as transações. E sempre que for adicionado alguma, ou deletado, essa variável tem que identificar...
-	const filterAll = () => {
-		setListTransactions(allTransactions);
-		setActiveFilter("all");
-	};
-	const filterIncoming = () => {
-		const incoming = allTransactions.filter(({ type }) => type === "incoming");
-		setListTransactions(incoming);
-		setActiveFilter("incoming");
-	};
-	const filterExpenses = () => {
-		const expenses = allTransactions.filter(({ type }) => type !== "incoming");
-		setListTransactions(expenses);
-		setActiveFilter("expenses");
-	};
+import { useContext } from "react";
+import { TransactionsContext } from "../../contexts/transactions";
+const List = () => {
+	const {
+		activeFilter,
+		filterAll,
+		filterIncoming,
+		filterExpenses,
+		listTransactions,
+	} = useContext(TransactionsContext);
 
 	return (
 		<section className="container">
@@ -32,7 +19,7 @@ const List = ({
 				<li
 					key="filter-all"
 					className={`filter__item filter__all ${
-						activeFilter === "all" ? "filter__item--active" : ""
+						activeFilter === "all" && "filter__item--active"
 					}`}
 					onClick={() => filterAll()}
 				>
@@ -41,7 +28,7 @@ const List = ({
 				<li
 					key="filter-entries"
 					className={`filter__item filter__entries ${
-						activeFilter === "incoming" ? "filter__item--active" : ""
+						activeFilter === "incoming" && "filter__item--active"
 					}`}
 					onClick={() => filterIncoming()}
 				>
@@ -50,23 +37,17 @@ const List = ({
 				<li
 					key="filter-expenses"
 					className={`filter__item filter__expenses ${
-						activeFilter === "expenses" ? "filter__item--active" : ""
+						activeFilter === "expenses" && "filter__item--active"
 					}`}
 					onClick={() => filterExpenses()}
 				>
 					Despesas
 				</li>
 			</ul>
+
 			<ul className="container__list">
-				{/* Colocar a key apenas na hora da chamada da função Card, não usa-la no Card também!! */}
 				{listTransactions.map((transaction, index) => (
-					<Card
-						setListTransactions={setListTransactions}
-						setAllTransactions={setAllTransactions}
-						transaction={transaction}
-						key={index}
-						index={index}
-					/>
+					<Card transaction={transaction} key={index} index={index} />
 				))}
 			</ul>
 

@@ -1,18 +1,10 @@
+import { useContext } from "react";
+import { TransactionsContext } from "../../contexts/transactions";
 import "./styles.css";
-// import EditCard from "../EditCard";
 
-const Card = ({
-	transaction,
-	index,
-	setListTransactions,
-	setAllTransactions,
-}) => {
-	// const [setEditCard, editCard] = useState(false);
+const Card = ({ transaction, index }) => {
+	const { removeTransaction } = useContext(TransactionsContext);
 
-	const removeTransaction = () => {
-		setListTransactions((old) => old.filter((_, i) => i !== index));
-		setAllTransactions((old) => old.filter((_, i) => i !== index));
-	};
 	const value = new Intl.NumberFormat("pt-BR", {
 		style: "currency",
 		currency: "BRL",
@@ -41,19 +33,10 @@ const Card = ({
 			</span>
 			<button
 				onClick={() => {
-					removeTransaction();
+					removeTransaction(index);
 				}}
 				className="item__button--delete"
 			></button>
-			{/* <button
-				className="item__button--edit"
-				onClick={() => {
-					setEditCard(true);
-				}}
-			>
-				Editar
-			</button> */}
-			{/* {editCard ? EditCard({transaction ={transaction} setTransaction={setTransaction} setEditCard}) : null} */}
 		</li>
 	);
 };

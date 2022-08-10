@@ -97,7 +97,9 @@ section {
 }
 body {
 	line-height: 1;
+	font-family: Segoe UI;
 }
+
 ol,
 ul {
 	list-style: none;
