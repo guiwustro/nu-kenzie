@@ -26,7 +26,6 @@ acordo com o filtro selecionado.
 O projeto foi realizado em React e as bibliotecas utilizadas foram:
 
 - Axios;
-- Styled components;
 - Context API;
 - React icons;
 
