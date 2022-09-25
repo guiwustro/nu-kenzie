@@ -3,7 +3,10 @@
 	min-width: 300px;
 	max-width: 1024px;
 	display: grid;
-	grid-template-areas: "title" "filter" "list";
+	grid-template-areas:
+		"title"
+		"filter"
+		"list";
 	row-gap: 15px;
 	margin: 0 4vw;
 }
@@ -79,7 +82,10 @@
 		text-align: start;
 	}
 	.container {
-		grid-template-areas: "title filter" "list list";
+		grid-template-areas:
+			"title filter"
+			"list list";
+		/* 2 3  */
 		grid-template-rows: 40px;
 		row-gap: 30px;
 	}

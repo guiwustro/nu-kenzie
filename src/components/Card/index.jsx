@@ -1,5 +1,4 @@
 import "./styles.css";
-// import EditCard from "../EditCard";
 
 const Card = ({
 	transaction,
@@ -7,8 +6,6 @@ const Card = ({
 	setListTransactions,
 	setAllTransactions,
 }) => {
-	// const [setEditCard, editCard] = useState(false);
-
 	const removeTransaction = () => {
 		setListTransactions((old) => old.filter((_, i) => i !== index));
 		setAllTransactions((old) => old.filter((_, i) => i !== index));
@@ -45,15 +42,6 @@ const Card = ({
 				}}
 				className="item__button--delete"
 			></button>
-			{/* <button
-				className="item__button--edit"
-				onClick={() => {
-					setEditCard(true);
-				}}
-			>
-				Editar
-			</button> */}
-			{/* {editCard ? EditCard({transaction ={transaction} setTransaction={setTransaction} setEditCard}) : null} */}
 		</li>
 	);
 };

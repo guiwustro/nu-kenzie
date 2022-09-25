@@ -2,7 +2,7 @@ import Logo from "../../assets/imgs/nu-kenzie-logo-home.png";
 import HomeImage from "../../assets/imgs/nukenzie-home-image.svg";
 import "./styles.css";
 
-const WelcomePage = ({ setActualPage }) => {
+const WelcomePage = ({ setIsHomePage }) => {
 	return (
 		<div className="welcome__container">
 			<div className="welcome__center-div">
@@ -14,7 +14,7 @@ const WelcomePage = ({ setActualPage }) => {
 				<span className="welcome__subtitle">De forma rápida e segura</span>
 				<button
 					onClick={() => {
-						setActualPage("AppPage");
+						setIsHomePage(false);
 					}}
 					className="welcome__button"
 				>

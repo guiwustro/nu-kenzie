@@ -10,11 +10,14 @@ const Form = ({ setListTransactions, setAllTransactions, activeFilter }) => {
 		const transaction = { description, valueEntry, type };
 
 		if (!valueEntry) transaction.valueEntry = 0;
+		//SetALltTRANSACTIONS => TODAS
+		// setListTransaction => Listas filtradas
 
 		setAllTransactions((oldList) => [transaction, ...oldList]);
-		return activeFilter === "all" || transaction.type === activeFilter
-			? setListTransactions((oldList) => [transaction, ...oldList])
-			: null;
+		setListTransactions((oldList) => [transaction, ...oldList]);
+		// return activeFilter === "all" || transaction.type === activeFilter
+		// 	? setListTransactions((oldList) => [transaction, ...oldList])
+		// 	: null;
 	};
 	return (
 		<aside className="aside__form">

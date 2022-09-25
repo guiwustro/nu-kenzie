@@ -11,15 +11,15 @@ function App() {
 	const [allTransactions, setAllTransactions] = useState([]);
 	const [activeFilter, setActiveFilter] = useState("all");
 
-	const [actualPage, setActualPage] = useState("WelcomePage");
+	const [isHomePage, setIsHomePage] = useState(false);
 
 	return (
 		<>
-			{actualPage === "WelcomePage" ? (
-				<WelcomePage setActualPage={setActualPage} />
+			{isHomePage === true ? (
+				<WelcomePage setIsHomePage={setIsHomePage} />
 			) : (
 				<div className="App">
-					<Header setActualPage={setActualPage} />
+					<Header setIsHomePage={setIsHomePage} />
 					<Form
 						setListTransactions={setListTransactions}
 						setAllTransactions={setAllTransactions}

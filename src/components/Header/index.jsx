@@ -1,14 +1,14 @@
 import DarkMode from "../DarkMode";
 import "./styles.css";
 
-const Header = ({ setActualPage }) => {
+const Header = ({ setIsHomePage }) => {
 	return (
 		<header className="header">
 			<span className="header__logo"></span>
 			<DarkMode />
 			<button
 				className="header__button-start"
-				onClick={() => setActualPage("WelcomePage")}
+				onClick={() => setIsHomePage(true)}
 			>
 				Início
 			</button>

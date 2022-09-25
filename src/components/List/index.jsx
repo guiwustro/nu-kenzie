@@ -10,6 +10,7 @@ const List = ({
 	setActiveFilter,
 }) => {
 	// a variável listTransactions está renderizando todo nossa página, precisa criar uma constante que armazene TODAS as transações. E sempre que for adicionado alguma, ou deletado, essa variável tem que identificar...
+
 	const filterAll = () => {
 		setListTransactions(allTransactions);
 		setActiveFilter("all");
@@ -24,6 +25,12 @@ const List = ({
 		setListTransactions(expenses);
 		setActiveFilter("expenses");
 	};
+
+	// const filterByType = (typeSelected)=>{
+	// 	const expenses = allTransactions.filter(({ type }) => type !== typeSelected);
+	// 	setListTransactions(expenses);
+	// 	setActiveFilter(typeSelected);
+	// }
 
 	return (
 		<section className="container">
@@ -70,7 +77,7 @@ const List = ({
 				))}
 			</ul>
 
-			{listTransactions.length === 0 ? (
+			{listTransactions.length === 0 && (
 				<div className="container__list">
 					<h2 className="container__title--empty">
 						Você ainda não possui nenhum lançamento
@@ -79,7 +86,7 @@ const List = ({
 						<img src={noCard} alt="" />
 					</div>
 				</div>
-			) : null}
+			)}
 		</section>
 	);
 };
